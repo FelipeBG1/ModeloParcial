@@ -47,6 +47,7 @@ export class PeliculaAltaComponent implements OnInit {
     this.agregarPeliculaBD({...pelicula}).then((response : any) => {
       console.log("actor registrado");
       this.agregado = "Se agrego la pelicula";
+      this.grupoControles.reset();
       setTimeout(() => {
         this.agregado = "";
       }, 3000);

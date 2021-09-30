@@ -45,6 +45,7 @@ export class ActorAltaComponent implements OnInit {
     this.agregarActorBD({...actor}).then((response : any) => {
       console.log("actor registrado");
       this.agregado = "Se agrego el actor";
+      this.grupoControles.reset();
       setTimeout(() => {
         this.agregado = "";
       }, 3000);
