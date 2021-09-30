@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink] = "['/busqueda']">Busqueda</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink] = "['/peliculas/peliculasListado']">Peliculas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink] = "['/peliculas/altaPelicula']">Alta pelicula</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink] = "['/actor/actoresListado']">Actores</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink] = "['/actor/altaActor']">Alta actor</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+<router-outlet></router-outlet>

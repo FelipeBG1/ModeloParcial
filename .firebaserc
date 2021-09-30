@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "modeloparcial-9b0cb": {
+      "hosting": {
+        "ModeloParcial": [
+          "modeloparcial-9b0cb"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="mt-5 row">
+      <div class="col-md-4 order-md-2 mb-4">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-muted">Actores</span>
+        </h4>
+        <app-tabla-actores (actorEvent)="cargarActor($event)"></app-tabla-actores>
+      </div>
+      <div class="col-md-8 order-md-1">
+        <h4 class="mb-3">Pelicula</h4>
+        <form class="needs-validation" [formGroup]="grupoControles" (ngSubmit)='cargarPelicula()'>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="firstName">Nombre</label>
+              <input type="text" class="form-control" formControlName='nombre' placeholder="Ingrese el nombre">
+              <small class="invalid" *ngIf="grupoControles.controls.nombre.errors?.required && grupoControles.controls.nombre.touched">El nombre es requerido</small>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="lastName">Tipo</label>
+              <select class="custom-select d-block w-100 form-control" formControlName='tipo'>
+                <option value="">Seleccione un tipo</option>
+                <option value="terror">Terror</option>
+                <option value="comedia">Comedia</option>
+                <option value="amor">Amor</option>
+                <option value="otros">Otros</option>
+              </select>
+              <small class="invalid" *ngIf="grupoControles.controls.tipo.errors?.required && grupoControles.controls.tipo.touched">El tipo es requerido</small>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="lastName">Fecha de estreno</label>
+                <input type="text" class="form-control" formControlName='fechaEstreno' placeholder="DD/MM/AAAA">
+                <small class="invalid" *ngIf="grupoControles.controls.fechaEstreno.errors?.required && grupoControles.controls.fechaEstreno.touched">La fecha de estreno es requerida</small>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="lastName">Actor</label>
+                <input type="text" class="form-control" formControlName='actor' placeholder="Ingrese el actor" value="{{this.actor}}">
+                <small class="invalid" *ngIf="grupoControles.controls.actor.errors?.required && grupoControles.controls.actor.touched">El actor es requerido</small>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="lastName">Cantidad de publico</label>
+                <input type="text" class="form-control" formControlName='cantidadPublico' placeholder="Ingrese la cantidad de publico">
+                <small class="invalid" *ngIf="grupoControles.controls.cantidadPublico.errors?.required && grupoControles.controls.cantidadPublico.touched">La cantidad de publico es requerida</small>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="lastName">Foto de la película</label>
+                <input type="text" class="form-control" formControlName='fotoDeLaPelicula' placeholder="Ingrese el poster de la pelicula">
+                <small class="invalid" *ngIf="grupoControles.controls.fotoDeLaPelicula.errors?.required && grupoControles.controls.fotoDeLaPelicula.touched">El poster es requerido</small>
+            </div>
+          </div> 
+          <hr class="mb-4">
+          <button type="submit" class="mb-5 btn btn-primary btn-lg btn-block">Agregar pelicula</button>
+          <small class="success">{{this.agregado}}</small>
+        </form>
+      </div>
+    </div>
+</div>

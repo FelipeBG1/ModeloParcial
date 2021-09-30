@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-xxl-10">
+            <div *ngFor="let actor of actores">
+                <div class="mb-2">
+                    <ul class="list-group mb-3">
+                        <li class="list-group-item d-flex justify-content-between lh-condensed">
+                            <div>
+                                <p>{{actor.nombre}}</p>
+                                <p>{{actor.apellido}}</p>
+                                <img src={{actor.bandera}} width="150px" height="100px"/>
+                            </div>
+                            <div style="margin: auto;">
+                                <button class="mt-2 btn btn-dark" (click)="cargarActor(actor)">Seleccionar</button>
+                            </div>    
+                        </li>
+                    </ul>
+                </div>                 
+            </div>
+        </div>
+    </div>
+</div>
