@@ -11,12 +11,20 @@
             -->
         
         <th scope="col">Nombre</th>
+        <th scope="col">Tipo</th>
+        <th scope="col">Fecha de estreno</th>
+        <th scope="col">Cantidad de publico</th>
+        <th scope="col">Actor</th>
         <th scope="col">Foto de la película</th>
       </tr>
     </thead>
     <tbody>
             <tr *ngFor="let pelicula of peliculas">
                 <td>{{pelicula.nombre}}</td>
+                <td>{{pelicula.tipo}}</td>
+                <td>{{pelicula.fechaDeEstreno}}</td>
+                <td>{{pelicula.cantidadPublico}}</td>
+                <td>{{pelicula.actor}}</td>
                 <td>
                     <img src={{pelicula.fotoPelicula}} width="120px" height="170px" (click)="this.enviarPelicula(pelicula)" style="cursor: pointer;"/>
                 </td>
