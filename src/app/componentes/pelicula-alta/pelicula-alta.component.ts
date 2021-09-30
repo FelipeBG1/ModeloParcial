@@ -37,19 +37,19 @@ export class PeliculaAltaComponent implements OnInit {
 
   cargarActor($event : Actor)
   {
-    this.actor = $event.nombre; 
+    this.grupoControles.get('actor')?.setValue($event.nombre);
   }
 
   cargarPelicula()
   {
-    let pelicula : Pelicula = new Pelicula(this.grupoControles.get("nombre")?.value,this.grupoControles.get("tipo")?.value,this.grupoControles.get("fechaEstreno")?.value,this.grupoControles.get("cantidadPublico")?.value,this.grupoControles.get("fotoDeLaPelicula")?.value,this.actor);
+    let pelicula : Pelicula = new Pelicula(this.grupoControles.get("nombre")?.value,this.grupoControles.get("tipo")?.value,this.grupoControles.get("fechaEstreno")?.value,this.grupoControles.get("cantidadPublico")?.value,this.grupoControles.get("fotoDeLaPelicula")?.value,this.grupoControles.get("actor")?.value);
 
     this.agregarPeliculaBD({...pelicula}).then((response : any) => {
       console.log("actor registrado");
       this.agregado = "Se agrego la pelicula";
-      this.grupoControles.reset();
       setTimeout(() => {
         this.agregado = "";
+        this.grupoControles.reset();
       }, 3000);
     })
     .catch((response : any) => {
@@ -64,6 +64,7 @@ export class PeliculaAltaComponent implements OnInit {
 
   agregarPeliculaBD(pelicula : Pelicula)
   {
+    
     return this.firestore.collection("peliculas").add(pelicula);
   }
 

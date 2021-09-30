@@ -31,6 +31,7 @@ export class TablaPeliculasComponent implements OnInit {
   enviarPelicula(pelicula : Pelicula)
   {
     this.peliculaEvent.emit(pelicula);
+    console.log(pelicula);
   }
 
   mostrarTabla()

@@ -33,21 +33,20 @@ export class ActorAltaComponent implements OnInit {
 
   cargarNacionalidad($event : Pais)
   {
-    this.pais = $event.nombre;
+    this.grupoControles.get('pais')?.setValue($event.nombre);
     this.bandera = $event.bandera;
-    
   }
 
   cargarActor()
   {
-    let actor : Actor = new Actor(this.grupoControles.get("nombre")?.value,this.grupoControles.get("apellido")?.value,this.pais,this.bandera);
+    let actor : Actor = new Actor(this.grupoControles.get("nombre")?.value,this.grupoControles.get("apellido")?.value,this.grupoControles.get("pais")?.value,this.bandera);
 
     this.agregarActorBD({...actor}).then((response : any) => {
       console.log("actor registrado");
       this.agregado = "Se agrego el actor";
-      this.grupoControles.reset();
       setTimeout(() => {
         this.agregado = "";
+        this.grupoControles.reset();
       }, 3000);
     })
     .catch((response : any) => {

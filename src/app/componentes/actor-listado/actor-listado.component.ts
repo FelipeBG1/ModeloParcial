@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Component({
   selector: 'app-actor-listado',
@@ -7,7 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ActorListadoComponent implements OnInit {
 
-  constructor() { }
+  actores : any = "";
+  constructor(private readonly afs: AngularFirestore) {
+    this.afs.collectionGroup('actores')
+    .valueChanges().subscribe(actores => {
+      this.actores = actores;
+    
+    });
+  }
 
   ngOnInit(): void {
   }
